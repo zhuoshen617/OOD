@@ -131,10 +131,6 @@ public:
         }
     }
 
-    bool isGameOver(){
-        return m_shipsSunk == TOTAL_SHIPS;
-    }
-
     void print()
     {
         for (int i = 0; i < 10; i++)
@@ -169,7 +165,7 @@ public:
 
                 ocean.shootAt(row, col);
 
-                if (ocean.isGameOver())
+                if (ocean.m_shipsSunk == Ocean::TOTAL_SHIPS)
                 {
                     ocean.print();
                     //print more status
