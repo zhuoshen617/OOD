@@ -148,29 +148,29 @@ public:
 class SnakeGame
 {
 public:
-	Board m_board;
+    Board m_board;
 
-	SnakeGame() {}
+    SnakeGame() {}
     void gameOver()
     {
         //print game status
     }
-	void StartGame()
+    void StartGame()
+    {	
+	m_board.init();
+
+	wile (true)
 	{
-		m_board.init();
+	    m_board.display();
+	    m_board.update();
 
-		while (true)
-		{
-			m_board.display();
-			m_board.update();
-
-			if (m_board.m_hasCollison)
-            {
-                gameOver();
-				break;
-            }
-		}
+            if (m_board.m_hasCollison)
+	    {
+		gameOver();
+		break;
+	    }
 	}
+    }
 };
 
 int main()
