@@ -19,16 +19,13 @@ int Ship::mapToHitIndex(int row, int col) {
 }
 
 bool Ship::shootAt(int row, int col) {
-    // cout << "shootAt" << endl;
     if (isSunk())
         return false;
 
-    // cout << "not sunk" << endl;
     if (isHit(row, col))
         return false;
     
     int hitIndex = mapToHitIndex(row, col);
-    // cout << hitIndex << endl;
     hits()[hitIndex] = 1;
 
     int cnt = 0;
@@ -43,7 +40,6 @@ bool Ship::shootAt(int row, int col) {
 
 bool Ship::isHit(int row, int col) {
     int hitIndex = mapToHitIndex(row, col);
-    // cout << "isHit" << hitIndex << endl;
     if (hitIndex == -1 || !hits()[hitIndex]) {
         return false;
     }
